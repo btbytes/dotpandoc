@@ -31,7 +31,7 @@ body {
 	font: 13px/19.5px Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;    
 	font: 16px/22px arial, sans-serif;    
 	font-size-adjust:	.5;
-	background:	url(http://www.w3.org/StyleSheets/Core/source/graphics/textura.gif) #fffff5;
+	background:	url(http://pradeepgowda.com/css/textura.gif) #fffff5;
 	color: #666;
 }              
 a { text-decoration:none; 
