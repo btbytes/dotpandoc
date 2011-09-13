@@ -28,10 +28,8 @@ $endif$
 body {           
 	margin: 1em 1em 1em 1em;
 	max-width:52em;  
-	font: 13px/19.5px Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;    
-	font: 16px/22px arial, sans-serif;    
+	font: 16px/22px arial, sans-serif;
 	font-size-adjust:	.5;
-	background:	url(http://pradeepgowda.com/css/textura.gif) #fffff5;
 	color: #000;
 }
 a { 
@@ -40,8 +38,6 @@ a {
 	color:	#00f;
 	}
 header {
-/*  margin-bottom: 1em;  
-*/
   padding: 0em;
   border-bottom: 3px solid #f1f1f1;
 }
@@ -61,7 +57,7 @@ h1, h2, h3, h1 a, h2 a, h3 a, h4 a{
 
 h3{
   font-variant: small-caps;
-	font-weight:400; }  
+	font-weight:400; }
 pre {
 	background-color: #fff;
 	border: solid 1px #eef;
@@ -70,10 +66,13 @@ pre {
 }
 blockquote {
 background:#f9f9f9;
+font-variant: italic;
+font-weight: 300;
 margin:1.5em 10px;
 padding:.5em 10px;
 quotes:"\201C""\201D""\2018""\2019";
 }
+
 blockquote:before {
 color:#ccc;
 content:open-quote;
@@ -84,7 +83,7 @@ vertical-align:-.4em;
 }
 blockquote p {
 display:inline;
-}  
+}
 </style>
 $if(highlighting-css)$
   <style type="text/css">
