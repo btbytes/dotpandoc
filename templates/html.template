@@ -114,13 +114,6 @@ $if(html5)$
 $endif$
 <h1 class="title">$title$</h1>
 
-$if(author)$
-  $if(homeurl)$
-    <p class="author"><a href="$homeurl$">$author$</a></p>
-  $else$
-    <p class="author">$author$</p>
-  $endif$
-$endif$
 $if(html5)$
 </header>
 $endif$
@@ -136,9 +129,19 @@ $for(include-after)$
 $include-after$
 $endfor$
 <footer>
-$if(date)$
-  <p><time datetime="$date$">$date$</time></p>
+<p>
+$if(author)$
+  $if(homeurl)$
+    <a href="$homeurl$">$author$</a>.
+  $else$
+    $author$
+  $endif$
 $endif$
+
+$if(date)$
+  <time datetime="$date$">$date$</time>
+$endif$
+</p>
 </footer>
 </body>
 </html>
