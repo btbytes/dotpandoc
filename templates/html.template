@@ -27,8 +27,8 @@ $endif$
 <style type="text/css" media="screen">
 body {           
 	margin: 1em 1em 1em 1em;
-	max-width:52em;  
-	font: 16px/22px arial, sans-serif;
+	max-width:52em;
+	font: 13px/21px verdana, arial, sans-serif;
 	font-size-adjust:	.5;
 	color: #333;
 }
