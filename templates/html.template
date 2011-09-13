@@ -26,39 +26,42 @@ $if(html5)$
 $endif$ 
 <style type="text/css" media="screen">
 body {           
-	margin: 3em auto;
-	max-width:42em;  
+	margin: 1em 1em 1em 1em;
+	max-width:52em;  
 	font: 13px/19.5px Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;    
 	font: 16px/22px arial, sans-serif;    
 	font-size-adjust:	.5;
 	background:	url(http://pradeepgowda.com/css/textura.gif) #fffff5;
-	color: #666;
-}              
-a { text-decoration:none; 
-	border-bottom: dotted 1px #99f; 
-	color:	#444;
+	color: #000;
+}
+a { 
+  text-decoration:none; 
+	border-bottom: solid 1px #00f; 
+	color:	#00f;
 	}
-header {margin-bottom: 2em;  padding: 0 0 0em 0;}  
-header h1, header p{text-align:center;}
-
+header {
+/*  margin-bottom: 1em;  
+*/
+  padding: 0em;
+  border-bottom: 3px solid #f1f1f1;
+}
+header h1 {
+  margin-bottom: 0.5em;
+}
+footer {
+  margin-top: 2em; padding: 0em;
+  border-top: 3px solid #f1f1f1;
+}
 h1, h2, h3 {line-height:1.5em;}
 h1, h2, h3, h1 a, h2 a, h3 a, h4 a{
 	text-decoration: none;
 	border: 0px;
-  color:#444;
   background:inherit;
-}                                 
-h3{font-variant: small-caps;
-	font-weight:400; }  
-h4 {background-color: #444;
-	color: #fff; 
-	padding:0.2em 0;
-	-moz-border-radius: 3px;
-	border-radius: 3px;     
-	padding-left: 0.5em;
-	font-weight:100;
-	}
+}
 
+h3{
+  font-variant: small-caps;
+	font-weight:400; }  
 pre {
 	background-color: #fff;
 	border: solid 1px #eef;
@@ -110,15 +113,13 @@ $if(html5)$
 <header>
 $endif$
 <h1 class="title">$title$</h1>
+
 $if(author)$
-$if(homeurl)$
-<p class="author"><a href="$homeurl$">$author$</a></p>
-$else$
-<p class="author">$author$</p>
-$endif$
-$endif$
-$if(date)$
-<p><time datetime="$date$">$date$</time></p>
+  $if(homeurl)$
+    <p class="author"><a href="$homeurl$">$author$</a></p>
+  $else$
+    <p class="author">$author$</p>
+  $endif$
 $endif$
 $if(html5)$
 </header>
@@ -127,12 +128,17 @@ $endif$
 $if(toc)$
 <section id="toc">
 	<p>Table of Contents</p>
-$toc$           
+$toc$
 </section>
 $endif$
 $body$
 $for(include-after)$
 $include-after$
 $endfor$
+<footer>
+$if(date)$
+  <p><time datetime="$date$">$date$</time></p>
+$endif$
+</footer>
 </body>
 </html>
