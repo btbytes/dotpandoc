@@ -27,12 +27,10 @@ $endif$
 <style type="text/css" media="screen">
 body {           
 	margin: 1em 1em 1em 1em;
-	max-width:52em;  
-	font: 13px/19.5px Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;    
-	font: 16px/22px arial, sans-serif;    
+	max-width:52em;
+	font: 13px/21px verdana, arial, sans-serif;
 	font-size-adjust:	.5;
-	background:	url(http://pradeepgowda.com/css/textura.gif) #fffff5;
-	color: #000;
+	color: #333;
 }
 a { 
   text-decoration:none; 
@@ -41,17 +39,17 @@ a {
 	}
 header {
   padding: 0em;
-  border-bottom: 3px solid #f1f1f1;
 }
 header h1 {
   margin-bottom: 0.5em;
 }
 footer {
   margin-top: 2em; padding: 0em;
-  border-top: 3px solid #f1f1f1;
 }
 
-h1, h2, h3 {line-height:1.5em;}
+h1, h2, h3,h4,h5,h6 {line-height:1.5em;
+color: #000;
+}
 h1, h2, h3, h1 a, h2 a, h3 a, h4 a{
 	text-decoration: none;
 	border: 0px;
@@ -60,7 +58,7 @@ h1, h2, h3, h1 a, h2 a, h3 a, h4 a{
 
 h3{
   font-variant: small-caps;
-	font-weight:400; }  
+	font-weight:400; }
 pre {
 	background-color: #fff;
 	border: solid 1px #eef;
@@ -69,10 +67,13 @@ pre {
 }
 blockquote {
 background:#f9f9f9;
+font-variant: italic;
+font-weight: 300;
 margin:1.5em 10px;
 padding:.5em 10px;
 quotes:"\201C""\201D""\2018""\2019";
 }
+
 blockquote:before {
 color:#ccc;
 content:open-quote;
@@ -83,7 +84,7 @@ vertical-align:-.4em;
 }
 blockquote p {
 display:inline;
-}  
+}
 </style>
 $if(highlighting-css)$
   <style type="text/css">
@@ -113,13 +114,6 @@ $if(html5)$
 $endif$
 <h1 class="title">$title$</h1>
 
-$if(author)$
-  $if(homeurl)$
-    <p class="author"><a href="$homeurl$">$author$</a></p>
-  $else$
-    <p class="author">$author$</p>
-  $endif$
-$endif$
 $if(html5)$
 </header>
 $endif$
@@ -135,9 +129,19 @@ $for(include-after)$
 $include-after$
 $endfor$
 <footer>
-$if(date)$
-  <p><time datetime="$date$">$date$</time></p>
+<p>
+$if(author)$
+  $if(homeurl)$
+    <a href="$homeurl$">$author$</a>.
+  $else$
+    $author$
+  $endif$
 $endif$
+
+$if(date)$
+  <time datetime="$date$">$date$</time>
+$endif$
+</p>
 </footer>
 </body>
 </html>
