@@ -9,10 +9,10 @@ $else$
 \setuppapersize[letter][letter]  % use letter paper
 \setuplayout[width=186mm, 
          backspace=20mm,
-	 cutspace=1.5in,
+	       cutspace=1.5in,
          height=269mm, 
-         header=10mm, 
-         footer=10mm,
+         header=25mm, 
+         footer=25mm,
          bottomspace=0mm,
          topspace=0mm
      ] % page layout
