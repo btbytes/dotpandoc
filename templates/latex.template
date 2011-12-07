@@ -1,6 +1,6 @@
 %% \documentclass$if(fontsize)$[$fontsize$]$endif${article}
 \documentclass[11pt,article,oneside]{memoir}
-
+\usepackage{lesspaper}
 \usepackage{amssymb,amsmath}
 $if(xetex)$
 \usepackage{ifxetex}
