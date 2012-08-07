@@ -1,6 +1,5 @@
-%% \documentclass$if(fontsize)$[$fontsize$]$endif${article}
-\documentclass[11pt,article,oneside]{memoir}
-\usepackage{lesspaper}
+\documentclass$if(fontsize)$[$fontsize$]$endif${article}
+\usepackage{savetrees}
 \usepackage{amssymb,amsmath}
 $if(xetex)$
 \usepackage{ifxetex}
