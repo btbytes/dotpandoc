@@ -169,6 +169,8 @@ $if(toc)$
 {
 \hypersetup{linkcolor=black}
 \tableofcontents
+\clearpage
+\pagenumbering{arabic} 
 }
 $endif$
 $body$
