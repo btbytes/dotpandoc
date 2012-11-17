@@ -15,15 +15,29 @@
 \renewcommand*\familydefault{\sfdefault}
 
 \makeatletter% since there's an at-sign (@) in the command name
+\newcommand{\HRule}{\rule{\linewidth}{0.05mm}}
 
 \renewcommand{\@maketitle}{%
+    $if(toc)$
+      \pagenumbering{gobble}
+      \centering {
+    $endif$
     \parskip\baselineskip% skip a line between paragraphs in the title block
     \parindent=0pt% don't indent paragraphs in the title block
     \textbf{\Large \@title}\par
-    \textmd{\@author}\\
-    \textsc{\small \@date} }
+    \textmd{\@author}$if(toc)$\\$else$\hfill$endif$
+    \textsc{\small \@date} 
+    $if(toc)$
+      }
+    $else$
+      \HRule
+    $endif$
+ 
+
+}
 
 \makeatother% resets the meaning of the at-sign (@)
+\pagenumbering{arabic}
 %% ---- PKG END ---
 
 \usepackage{fixltx2e} % provides \textsubscript
