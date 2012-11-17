@@ -25,7 +25,7 @@
     \parskip\baselineskip% skip a line between paragraphs in the title block
     \parindent=0pt% don't indent paragraphs in the title block
     \textbf{\Large \@title}\par
-    \textmd{\@author}$if(toc)$\\$else$\hfill$endif$
+    \textbf{\large \@author}$if(toc)$\\$else$\hfill$endif$
     \textsc{\small \@date} 
     $if(toc)$
       }
