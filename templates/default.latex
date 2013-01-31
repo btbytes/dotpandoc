@@ -10,9 +10,20 @@
 \usepackage[none]{hyphenat}
 \raggedright
 
-%% -- use sans-serif font by default
-\usepackage[scaled]{helvet}
-\renewcommand*\familydefault{\sfdefault}
+%% to use open type fonts
+\usepackage{xltxtra}
+
+% use otf font myndraine
+%\setmainfont{Myndraine}
+%\setmainfont{Mido}
+
+%% -- use sans-serif font
+%\usepackage[scaled]{helvet}
+%\renewcommand*\familydefault{\sfdefault}
+
+%% LinuxLibertine -- serif type family.
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
 
 \makeatletter% since there's an at-sign (@) in the command name
 \newcommand{\HRule}{\rule{\linewidth}{0.05mm}}
@@ -25,14 +36,13 @@
     \parskip\baselineskip% skip a line between paragraphs in the title block
     \parindent=0pt% don't indent paragraphs in the title block
     \textbf{\Large \@title}\par
-    \textbf{\large \@author}$if(toc)$\\$else$\hfill$endif$
-    \textsc{\small \@date} 
+    \textsc{\large \@author}$if(toc)$\\$else$\hfill$endif$
+    \textsc{\small \@date}
     $if(toc)$
       }
     $else$
       \HRule
     $endif$
- 
 
 }
 
@@ -184,7 +194,7 @@ $if(toc)$
 \hypersetup{linkcolor=black}
 \tableofcontents
 \clearpage
-\pagenumbering{arabic} 
+\pagenumbering{arabic}
 }
 $endif$
 $body$

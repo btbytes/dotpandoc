@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html$if(lang)$ lang="$lang$"$endif$>
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://files.btbytes.com/css/pandoc.css">
 $for(author-meta)$
   <meta name="author" content="$author-meta$">
 $endfor$
@@ -28,7 +29,7 @@ $for(header-includes)$
 $endfor$
 </head>
 <body>
-<div id="w">
+
 $for(include-before)$
 $include-before$
 $endfor$
@@ -48,12 +49,12 @@ $if(toc)$
 $toc$
 </nav>
 $endif$
-<div id="b">
+
 $body$
-</div>
+
 $for(include-after)$
 $include-after$
 $endfor$
-</div>
+
 </body>
 </html>

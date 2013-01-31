@@ -1,0 +1,27 @@
+% ConTeXt template for homework submissions
+% Pradeep Gowda <pgowda@iupui.edu>
+% 2012-01-30
+
+\setuppapersize[letter][letter]
+\setuplayout[topspace=0.5in,
+  backspace=1in,
+  header=24pt,
+  footer=36pt,
+  height=middle,
+  width=middle]
+\setupheadertexts[\hfill{\tfa $author$}]
+\setupfootertexts[
+		{\tfx $title$
+		\hfill $if(date)$ $date$ $else$ \date $endif$
+		\hfill \pagenumber/\totalnumberofpages}
+		]
+\setupbodyfont[sansserif, 11pt]
+
+\setupcolors[state=start]
+\setupTABLE[each][each][width=2em,height=2em,align={middle,middle}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+
+\starttext
+  $body$
+\stoptext
