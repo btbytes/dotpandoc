@@ -2,7 +2,6 @@
 <html$if(lang)$ lang="$lang$"$endif$>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://files.btbytes.com/css/pandoc.css">
 $for(author-meta)$
   <meta name="author" content="$author-meta$">
 $endfor$

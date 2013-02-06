@@ -11,11 +11,11 @@
   width=middle]
 \setupheadertexts[\hfill{\tfa $author$}]
 \setupfootertexts[
-		{\tfx $title$
-		\hfill $if(date)$ $date$ $else$ \date $endif$
-		\hfill \pagenumber/\totalnumberofpages}
-		]
-\setupbodyfont[sansserif, 11pt]
+        {\tfx $title$
+        \hfill $if(date)$ $date$ $else$ \date $endif$
+        \hfill \pagenumber/\totalnumberofpages}
+        ]
+\setupbodyfont[mono, 11pt]
 
 \setupcolors[state=start]
 \setupTABLE[each][each][width=2em,height=2em,align={middle,middle}]

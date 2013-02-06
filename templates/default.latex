@@ -4,6 +4,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 %% ---- PKG START ---
+\usepackage{longtable}
 \usepackage{fullpage}
 \usepackage[svgnames]{xcolor}% provides colors for text
 %% -- ragged right
@@ -22,16 +23,16 @@
 %\renewcommand*\familydefault{\sfdefault}
 
 %% LinuxLibertine -- serif type family.
-\usepackage{fontspec}
-\setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
 
 \makeatletter% since there's an at-sign (@) in the command name
 \newcommand{\HRule}{\rule{\linewidth}{0.05mm}}
 
 \renewcommand{\@maketitle}{%
-    $if(toc)$
-      \pagenumbering{gobble}
-      \centering {
+  $if(toc)$
+  \pagenumbering{gobble}
+  \centering {
     $endif$
     \parskip\baselineskip% skip a line between paragraphs in the title block
     \parindent=0pt% don't indent paragraphs in the title block
@@ -39,10 +40,10 @@
     \textsc{\large \@author}$if(toc)$\\$else$\hfill$endif$
     \textsc{\small \@date}
     $if(toc)$
-      }
-    $else$
-      \HRule
-    $endif$
+  }
+  $else$
+  \HRule
+  $endif$
 
 }
 
@@ -54,28 +55,28 @@
 % use microtype if available
 \IfFileExists{microtype.sty}{\usepackage{microtype}}{}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 $if(euro)$
-  \usepackage{eurosym}
+\usepackage{eurosym}
 $endif$
 \else % if luatex or xelatex
-  \usepackage{fontspec}
-  \ifxetex
-    \usepackage{xltxtra,xunicode}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
+\usepackage{fontspec}
+\ifxetex
+\usepackage{xltxtra,xunicode}
+\fi
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand{\euro}{€}
 $if(mainfont)$
-    \setmainfont{$mainfont$}
+\setmainfont{$mainfont$}
 $endif$
 $if(sansfont)$
-    \setsansfont{$sansfont$}
+\setsansfont{$sansfont$}
 $endif$
 $if(monofont)$
-    \setmonofont{$monofont$}
+\setmonofont{$monofont$}
 $endif$
 $if(mathfont)$
-    \setmathfont{$mathfont$}
+\setmathfont{$mathfont$}
 $endif$
 \fi
 $if(geometry)$
@@ -108,7 +109,7 @@ $if(fancy-enums)$
 % markers to extend beyond the left margin.
 \makeatletter\AtBeginDocument{%
   \renewcommand{\@listi}
-    {\setlength{\labelwidth}{4em}}
+               {\setlength{\labelwidth}{4em}}
 }\makeatother
 \usepackage{enumerate}
 $endif$
@@ -123,26 +124,26 @@ $if(graphics)$
 % are scaled down if they would overflow the margins.
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-\else\Gin@nat@width\fi}
+  \else\Gin@nat@width\fi}
 \makeatother
 \let\Oldincludegraphics\includegraphics
 \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
 $endif$
 \ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
+\usepackage[setpagesize=false, % page size defined by xetex
+  unicode=false, % unicode breaks when used with xetex
+  xetex]{hyperref}
 \else
-  \usepackage[unicode=true]{hyperref}
+\usepackage[unicode=true]{hyperref}
 \fi
 \hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={$author-meta$},
-            pdftitle={$title-meta$},
-            colorlinks=true,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
-            pdfborder={0 0 0}}
+  bookmarks=true,
+  pdfauthor={$author-meta$},
+  pdftitle={$title-meta$},
+  colorlinks=true,
+  urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+  linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+  pdfborder={0 0 0}}
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
@@ -164,10 +165,10 @@ $if(verbatim-in-note)$
 $endif$
 $if(lang)$
 \ifxetex
-  \usepackage{polyglossia}
-  \setmainlanguage{$mainlang$}
+\usepackage{polyglossia}
+\setmainlanguage{$mainlang$}
 \else
-  \usepackage[$lang$]{babel}
+\usepackage[$lang$]{babel}
 \fi
 $endif$
 $for(header-includes)$
@@ -191,10 +192,10 @@ $include-before$
 $endfor$
 $if(toc)$
 {
-\hypersetup{linkcolor=black}
-\tableofcontents
-\clearpage
-\pagenumbering{arabic}
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+  \clearpage
+  \pagenumbering{arabic}
 }
 $endif$
 $body$
