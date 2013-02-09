@@ -1,0 +1,36 @@
+% ConTeXt template for compact two column article
+% Pradeep Gowda <pgowda@iupui.edu>
+% 2012-02-08
+
+\setuppapersize[letter][letter]
+\setuplayout[topspace=0.5in,
+  backspace=1in,
+  header=24pt,
+  footer=36pt,
+  height=middle,
+  width=middle]
+\setuppagenumbering[location=]
+\setupfootertexts[
+        {\hfill \pagenumber/\totalnumberofpages \hfill}
+        ]
+\setupbodyfont[sansserif, 10pt]
+
+\setupcolors[state=start]
+\setupTABLE[each][each][width=2em,height=2em,align={middle,middle}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+
+\starttext
+\startalignment[center]
+{\tfa $title$} \crlf
+{\tfx $author$} \crlf
+{\tfx $if(date)$ $date$ $else$ \date $endif$ }
+
+\stopalignment
+
+\blank[2*big]
+
+\startcolumns[n=2]
+  $body$
+\stopcolumns
+\stoptext

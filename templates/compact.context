@@ -1,0 +1,34 @@
+% ConTeXt template for compact one column article
+% Pradeep Gowda <pgowda@iupui.edu>
+% 2012-02-08
+
+\setuppapersize[letter][letter]
+\setuplayout[topspace=0.5in,
+  backspace=1in,
+  header=24pt,
+  footer=36pt,
+  height=middle,
+  width=middle]
+
+
+\setupheadertexts[]
+\setupfootertexts[
+        {\hfill \pagenumber/\totalnumberofpages}
+        ]
+\setupbodyfont[sansserif, 11pt]
+
+\setupcolors[state=start]
+\setupTABLE[each][each][width=2em,height=2em,align={middle,middle}]
+\setupTABLE[r][1][background=color,backgroundcolor=gray]
+\setupTABLE[c][1][background=color,backgroundcolor=gray]
+
+\starttext
+\startalignment[center]
+{\tfa $title$}
+\stopalignment
+
+{\tfx $author$ \hfill $if(date)$ $date$ $else$ \date $endif$ }
+\blank[2*big]
+
+  $body$
+\stoptext
