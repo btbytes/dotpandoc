@@ -7,6 +7,54 @@
 \usepackage[landscape]{geometry}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+%% ---- PKG START ---
+\usepackage{longtable}
+\usepackage{fullpage}
+\usepackage[svgnames]{xcolor}% provides colors for text
+%% -- ragged right
+\usepackage[none]{hyphenat}
+\raggedright
+
+%% to use open type fonts
+%%\usepackage{xltxtra}
+
+% use otf font myndraine
+%\setmainfont{Myndraine}
+%\setmainfont{Mido}
+
+%% -- use sans-serif font
+%\usepackage[scaled]{helvet}
+%\renewcommand*\familydefault{\sfdefault}
+
+%% LinuxLibertine -- serif type family.
+%\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
+
+\makeatletter% since there's an at-sign (@) in the command name
+\newcommand{\HRule}{\rule{\linewidth}{0.05mm}}
+
+\renewcommand{\@maketitle}{%
+  $if(toc)$
+  \pagenumbering{gobble}
+  \centering {
+    $endif$
+    \parskip\baselineskip% skip a line between paragraphs in the title block
+    \parindent=0pt% don't indent paragraphs in the title block
+    \textbf{\Large \@title}\par
+    \textsc{\large \@author}$if(toc)$\\$else$\hfill$endif$
+    \textsc{\small \@date}
+    $if(toc)$
+  }
+  $else$
+  \HRule
+  $endif$
+
+}
+
+\makeatother% resets the meaning of the at-sign (@)
+\pagenumbering{arabic}
+%% ---- PKG END ---
+
 \usepackage{fixltx2e} % provides \textsubscript
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
