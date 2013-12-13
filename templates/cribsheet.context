@@ -1,0 +1,39 @@
+% ConTeXt template for creating cribsheets
+% Pradeep Gowda <pgowda@iupui.edu>
+% 2013-12-13
+
+% Usage:
+% pandoc input.md -t context --template=cribsheet [--variable=KEY:VAL]
+%
+% optional parameters that can be set using commandline
+% layout:portrait (default:landscape)
+% bodyfont: sansserif (default:serif)
+% fontsize: 10pt (default:8pt)
+% columns:3 (default:4)
+
+
+\setuppapersize[letter,$if(layout)$$layout$$else$landscape$endif$]
+\setuplayout[topspace=0.2in,
+  backspace=0.3in,
+  header=8pt,
+  footer=8pt,
+  height=middle,
+  width=middle]
+\setuppagenumbering[location=]
+\setupfootertexts[
+        {\hfill \pagenumber/\totalnumberofpages \hfill}
+        ]
+\setupbodyfont[$if(bodyfont)$$bodyfont$$else$serif$endif$, $if(fontsize)$$fontsize$$else$8pt$endif$]
+
+\starttext
+\startalignment[center]
+{\tf $title$} \hfill
+{\tfx $author$} \hfill
+{\tfx $if(date)$ $date$ $else$ \date $endif$ }
+\stopalignment
+\blank[1*small]
+
+\startcolumns[n=$if(columns)$$columns$$else$4$endif$]
+  $body$
+\stopcolumns
+\stoptext
