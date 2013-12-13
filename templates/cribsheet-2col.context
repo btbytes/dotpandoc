@@ -1,19 +1,19 @@
-% ConTeXt template for compact two column article
+% ConTeXt template for compact two column cribsheet
 % Pradeep Gowda <pgowda@iupui.edu>
 % 2013-12-12
 
 \setuppapersize[letter][letter]
 \setuplayout[topspace=0.2in,
   backspace=0.3in,
-  header=12pt,
-  footer=12pt,
+  header=8pt,
+  footer=8pt,
   height=middle,
   width=middle]
 \setuppagenumbering[location=]
 \setupfootertexts[
         {\hfill \pagenumber/\totalnumberofpages \hfill}
         ]
-\setupbodyfont[sansserif, 8pt]
+\setupbodyfont[serif, 8pt]
 
 \starttext
 \startalignment[center]
