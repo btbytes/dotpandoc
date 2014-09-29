@@ -23,8 +23,8 @@
 %\renewcommand*\familydefault{\sfdefault}
 
 %% LinuxLibertine -- serif type family.
-%\usepackage{fontspec}
-%\setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
 
 \makeatletter% since there's an at-sign (@) in the command name
 \newcommand{\HRule}{\rule{\linewidth}{0.05mm}}
