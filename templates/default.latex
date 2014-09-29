@@ -3,6 +3,7 @@
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+
 %% ---- PKG START ---
 \usepackage{longtable}
 \usepackage{fullpage}
@@ -25,6 +26,11 @@
 %% LinuxLibertine -- serif type family.
 \usepackage{fontspec}
 \setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
+
+%% Charis SIL -- Serif type family
+\usepackage{fontspec}
+\setmainfont{Charis SIL}
+
 
 \makeatletter% since there's an at-sign (@) in the command name
 \newcommand{\HRule}{\rule{\linewidth}{0.05mm}}
