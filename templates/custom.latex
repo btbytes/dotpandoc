@@ -28,8 +28,10 @@
 \setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
 
 %% Charis SIL -- Serif type family
-\usepackage{fontspec}
-\setmainfont{Charis SIL}
+%\usepackage{fontspec}
+%\setmainfont{Charis SIL}
+
+
 
 
 \makeatletter% since there's an at-sign (@) in the command name
