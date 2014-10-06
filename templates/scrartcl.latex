@@ -109,8 +109,8 @@
 % Font:
 % Here I set my main font, which is an Apple Corporation Exclusive, golly.
 
-\setmainfont{Hoefler Text}
-\setromanfont[Mapping=tex-text,Contextuals={NoWordInitial,NoWordFinal,NoLineInitial,NoLineFinal},Ligatures={NoCommon}]{Hoefler Text}
+%\setmainfont{Hoefler Text}
+%\setromanfont[Mapping=tex-text,Contextuals={NoWordInitial,NoWordFinal,NoLineInitial,NoLineFinal},Ligatures={NoCommon}]{Hoefler Text}
 
 % Hoefler Text is okay, but note the long discussion of 'contextuals' which is necessary to cools off
 % some of its show-offy properties. (You can make your essay look like the
