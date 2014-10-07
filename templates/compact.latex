@@ -2,8 +2,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
+\usepackage{multicol}
 \usepackage{ifxetex,ifluatex}
-
 %% ---- PKG START ---
 \usepackage{longtable}
 \usepackage{fullpage}
@@ -194,6 +194,10 @@ $if(title)$
 \maketitle
 $endif$
 
+$if(cols)$
+\begin{multicols}{$cols$}
+$endif$
+
 $for(include-before)$
 $include-before$
 
@@ -229,4 +233,5 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+$if(cols)$\end{multicols}$endif$
 \end{document}
