@@ -1,0 +1,176 @@
+\documentclass[ms,letter]{memoir}
+\chapterstyle{dash} % try also reparticle
+\usepackage{ulem}   % underline
+\usepackage{xcolor} %
+\usepackage{lipsum} %dummy text
+% All font size must be normal size
+\renewcommand{\large}{\normalsize}
+\renewcommand{\Large}{\normalsize}
+\newcommand{\red}[1]{\textcolor{red!50!black}{#1}}
+\newcommand{\RED}[1]{\textcolor{red!50!black}{\MakeUppercase{#1}}}
+% font hyphenation
+\usepackage{everysel}
+\EverySelectfont{%
+\fontdimen2\font=0.6em % interword space
+\fontdimen3\font=0em % interword stretch
+\fontdimen4\font=0em % interword shrink
+\fontdimen7\font=0em % extra space
+\hyphenchar\font=`\-% to allow hyphenation
+}
+
+
+%\usepackage[spacing=true,factor=1200, stretch=10, shrink=15]{microtype}
+\renewcommand{\baselinestretch}{1}
+
+
+\newbox\flinebox
+\newbox\slinebox
+\newbox\mlinebox
+\def\duplines{\setlength\parindent{0pt}
+  \setbox\flinebox\lastbox
+  \ifvoid\flinebox\relax
+  \else
+  \setbox\slinebox\hbox{\copy\flinebox}
+  \setbox\mlinebox\hbox{\copy\flinebox}
+  \unskip\unpenalty
+  {\duplines}
+
+{\color{black!30} \box\flinebox\vspace*{-2.85ex}}
+{\color{black!50} \makebox[\textwidth]{\hspace*{-0.25pt}\box\mlinebox}\vspace*{-2.75ex}}
+{\color{black!90}  \makebox[\textwidth]{\hspace*{0.25pt}\box\slinebox}}\fi
+
+}
+
+\newcommand\BlurText[1]{%
+  \vbox{#1\par\duplines}}
+
+%%%%%%%%%%
+
+% \usepackage{fullpage}
+\usepackage[top=1.5in, bottom=1.5in, left=1.2in, right=1.2in]{geometry}
+
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage{biblatex}
+$if(biblio-files)$
+\bibliography{$biblio-files$}
+$endif$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$endif$
+$if(graphics)$
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(lang)$
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{$mainlang$}
+\else
+  \usepackage[$lang$]{babel}
+\fi
+$endif$
+
+$if(title)$
+\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+$if(title)$
+\maketitle
+$endif$
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$body$
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$biblio-files$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+
+\end{document}
