@@ -1,7 +1,10 @@
-My pandoc data directory
-========================
+# My pandoc data directory
 
-You can also pandoc's system default templates for a given output format FORMAT by putting a file templates/default.FORMAT in the user data directory
+aliases: 
 
-Output formats:  native, json, html, html+lhs, s5, slidy, docbook, opendocument, latex, latex+lhs, context, texinfo, man, markdown, markdown+lhs, plain, rst, rst+lhs, mediawiki, textile, rtf, org, odt, epub
-
+```
+alias pandoc="pandoc --latex-engine=xelatex"
+alias compact2c="pandoc --latex-engine=xelatex --template=compact --variable=cols:2 --variable=fontsize:9pt --variable=documentclass:extarticle"
+alias manuscript="pandoc --latex-engine=xelatex --template=manuscript"
+alias manus="pandoc --latex-engine=xelatex --template=manus"
+```
