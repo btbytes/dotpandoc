@@ -1,34 +1,131 @@
 % ConTeXt template for compact one column article
 % Pradeep Gowda <pgowda@iupui.edu>
-% 2012-02-08
+% 2016-07-14
+
+\usecolors[xwi]
+\setupcolors[state=start]
+
+$if(context-lang)$
+\mainlanguage[$context-lang$]
+$endif$
+$if(context-dir)$
+\setupalign[$context-dir$]
+\setupdirections[bidi=on,method=two]
+$endif$
+% Enable hyperlinks
+\setupinteraction
+  [state=start,
+$if(title)$
+  title={$title$},
+$endif$
+$if(subtitle)$
+  subtitle={$subtitle$},
+$endif$
+$if(author)$
+  author={$for(author)$$author$$sep$; $endfor$},
+$endif$
+$if(keywords)$
+  keyword={$for(keywords)$$keywords$$sep$; $endfor$},
+$endif$
+  style=$linkstyle$,
+  color=navy,
+  contrastcolor=$linkcontrastcolor$]
 
 \setuppapersize[letter][letter]
-\setuplayout[topspace=0.5in,
-  backspace=1in,
+\setuplayout[
+  topspace=0.5in,
+  margin=1in,
   header=24pt,
   footer=36pt,
   height=middle,
   width=middle]
+
+% make chapter, section bookmarks visible when opening document
+\placebookmarks[chapter, section, subsection, subsubsection, subsubsubsection, subsubsubsubsection][chapter, section]
+\setupinteractionscreen[option=bookmark]
+\setuptagging[state=start]
 
 
 \setupheadertexts[]
 \setupfootertexts[
         {\hfill \pagenumber/\totalnumberofpages}
         ]
-\setupbodyfont[sansserif, 11pt]
 
-\setupcolors[state=start]
+\usemodule[simplefonts][size=10pt]
+\setmainfont[Charter][expansion=quality,protrusion=quality]
+\setsansfont[Fira Sans][expansion=quality,protrusion=quality]
+\setmonofont[Fira Mono][scale=0.90]
+
+\setuphead[chapter]            [style=\tfb\ss,header=empty]
+\setuphead[section]            [style=\tfa\ss]
+\setuphead[subsection]         [style=\tf\ss]
+\setuphead[subsubsection]      [style=\bf\ss]
+\setuphead[subsubsubsection]   [style=\sc\ss]
+\setuphead[subsubsubsubsection][style=\it\ss]
+$if(number-sections)$
+$else$
+\setuphead[chapter, section, subsection, subsubsection, subsubsubsection, subsubsubsubsection][number=no]
+$endif$
+
+\definedescription
+  [description]
+  [headstyle=bold, style=normal, location=hanging, width=broad, margin=1cm, alternative=hanging]
+
+\setupitemize[autointro]    % prevent orphan list intro
+\setupitemize[indentnext=no]
+
+\setupfloat[figure][default={here,nonumber}]
+\setupfloat[table][default={here,nonumber}]
+
+\setupthinrules[width=15em] % width of horizontal rules
+
 \setupTABLE[each][each][width=2em,height=2em,align={middle,middle}]
 \setupTABLE[r][1][background=color,backgroundcolor=gray]
 \setupTABLE[c][1][background=color,backgroundcolor=gray]
 
+
 \starttext
-\startalignment[center]
-{\tfa $title$}
+\startalignment[right]
+{\tfc $title$}
+$if(subtitle)$
+  \smallskip
+  {\tfa $subtitle$}
+$endif$
+$if(author)$
+  \medskip
+  {\it $for(author)$$author$$sep$\crlf $endfor$}
+$endif$
+$if(date)$
+  \hfill
+  {\tt $date$}
+$endif$
+\bigskip
 \stopalignment
 
-{\tfx $author$ \hfill $if(date)$ $date$ $else$ \date $endif$ }
-\blank[2*big]
+
+$if(abstract)$
+\midaligned{\it Abstract}
+\startnarrower[2*middle]
+$abstract$
+\stopnarrower
+\blank[big]
+$endif$
+$for(include-before)$
+$include-before$
+$endfor$
+$if(toc)$
+\completecontent
+$endif$
+$if(lot)$
+\completelistoftables
+$endif$
+$if(lof)$
+\completelistoffigures
+$endif$
 
   $body$
+
+$for(include-after)$
+$include-after$
+$endfor$
 \stoptext

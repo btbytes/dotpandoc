@@ -26,15 +26,10 @@ $endif$
   \fi
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
-$if(mainfont)$
-    \setmainfont{$mainfont$}
-$endif$
-$if(sansfont)$
-    \setsansfont{$sansfont$}
-$endif$
-$if(monofont)$
-    \setmonofont[Mapping=tex-ansi]{$monofont$}
-$endif$
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Mapping=tex-text]{Hoefler Text}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+\setmonofont[Scale=MatchLowercase]{Andale Mono}
 $if(mathfont)$
     \setmathfont(Digits,Latin,Greek){$mathfont$}
 $endif$
@@ -108,60 +103,10 @@ $if(tables)$
 $endif$
 $if(graphics)$
 \usepackage{graphicx,grffile}
-%% ---- PKG START ---
-\usepackage{longtable}
-\usepackage{fullpage}
-\usepackage[svgnames]{xcolor}% provides colors for text
-%% -- ragged right
-\usepackage[none]{hyphenat}
-\raggedright
-
-%% to use open type fonts
-\usepackage{xltxtra}
-
-% use otf font myndraine
-%\setmainfont{Myndraine}
-%\setmainfont{Mido}
-
-%% -- use sans-serif font
-%\usepackage[scaled]{helvet}
-%\renewcommand*\familydefault{\sfdefault}
-
-%% LinuxLibertine -- serif type family.
-\usepackage{fontspec}
-%\setmainfont[Mapping=tex-text,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
-
-%% Charis SIL -- Serif type family
-%\usepackage{fontspec}
-%\setmainfont{Charis SIL}
-
-\makeatletter% since there's an at-sign (@) in the command name
-\newcommand{\HRule}{\rule{\linewidth}{0.05mm}}
-
-\renewcommand{\@maketitle}{%
-  $if(toc)$
-  \pagenumbering{gobble}
-  \centering {
-    $endif$
-    \parskip\baselineskip% skip a line between paragraphs in the title block
-    \parindent=0pt% don't indent paragraphs in the title block
-    \textbf{\Large \@title}\par
-    \textsc{\large \@author}$if(toc)$\\$else$\hfill$endif$
-    \textsc{\small \@date}
-    $if(toc)$
-  }
-  $else$
-  \HRule
-  $endif$
-
-}
-
-\makeatother% resets the meaning of the at-sign (@)
-\pagenumbering{arabic}
-%% ---- PKG END ---
-
+\makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
